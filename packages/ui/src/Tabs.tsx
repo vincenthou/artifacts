@@ -13,7 +13,7 @@ interface TabsProps {
 const TabsContentClass = "w-full justify-center items-center mt-6 h-60 bg-white rounded-[20px]"
 
 const Tabs = React.forwardRef<HTMLInputElement, TabsProps>(
-    ({ defaultValue = "tab1", className, children }, ref) => {
+    ({ defaultValue = "create", className, children }, ref) => {
       return (
         <RadixTab
           defaultValue={defaultValue}
@@ -23,35 +23,35 @@ const Tabs = React.forwardRef<HTMLInputElement, TabsProps>(
           <TabsList className="flex h-12 items-center rounded-lg bg-[#F7F7F8] p-1">
             <TabsTrigger 
               className="flex-1 rounded-[20px] px-3 py-2 text-[15px] font-medium text-gray-500 transition-colors hover:text-gray-900 data-[state=active]:bg-black data-[state=active]:text-white"
-              value="tab1"
+              value="create"
             >
               Create
             </TabsTrigger>
             <div className="mx-1 h-4 w-[1px] bg-gray-200" />
             <TabsTrigger 
               className="flex-1 rounded-[20px] px-3 py-2 text-[15px] font-medium text-gray-500 transition-colors hover:text-gray-900 data-[state=active]:bg-black data-[state=active]:text-white"
-              value="tab2"
+              value="upload"
             >
               Upload
             </TabsTrigger>
             <div className="mx-1 h-4 w-[1px] bg-gray-200" />
             <TabsTrigger 
               className="flex-1 rounded-[20px] px-3 py-2 text-[15px] font-medium text-gray-500 transition-colors hover:text-gray-900 data-[state=active]:bg-black data-[state=active]:text-white"
-              value="tab3"
+              value="pasteCode"
             >
               Paste Code
             </TabsTrigger>
           </TabsList>
-          <TabsContent value="tab1" className={TabsContentClass}>
+          <TabsContent value="create" className={TabsContentClass}>
             <Create 
               className="max-w-md w-full" 
               placeholder='Tell me what you want to build — e.g. "Make me a personal portfolio"'
             />
           </TabsContent>
-          <TabsContent value="tab2" className={TabsContentClass}>
+          <TabsContent value="upload" className={TabsContentClass}>
             <Upload />
           </TabsContent>
-          <TabsContent value="tab3" className={TabsContentClass}>
+          <TabsContent value="pasteCode" className={TabsContentClass}>
             <PasteCode />
           </TabsContent>
         </RadixTab>

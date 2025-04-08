@@ -2,7 +2,9 @@ import Image from 'next/image'
 import { ChevronsDown, MessageSquare, Share2 } from 'lucide-react'
 import { Button } from "@monorepo/ui/components/Button"
 import { Tabs } from "@monorepo/ui/components/Tabs"
-import { Today } from "@monorepo/ui/components/Today"
+import { Cards } from "@monorepo/ui/components/Cards"
+
+import { mockCards } from "./mock"
 
 export default function Home() {
   return (
@@ -43,7 +45,7 @@ export default function Home() {
           />
         </h2>
 
-        <Today />
+        <Cards data={mockCards} />
       </main>
     </div>
   )

@@ -1,7 +1,7 @@
 "use client"
 
-import type { FC } from 'react'
-import { useState } from 'react'
+import type { FC } from "react"
+import { useState } from "react"
 
 interface PasteCodeProps {
   onDeploy?: (code: string) => void

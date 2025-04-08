@@ -218,6 +218,9 @@ importers:
       '@monorepo/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
+      '@monorepo/types':
+        specifier: workspace:^
+        version: link:../types
       '@monorepo/utils':
         specifier: workspace:*
         version: link:../utils

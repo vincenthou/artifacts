@@ -1,108 +1,15 @@
-export interface CardEmoji {
-  type: string;
-  count: number;
-  icon: string;
+import type { FC } from "react"
+import type { Card } from "@monorepo/types"
+
+interface CardsProps {
+  data: Card[];
 }
 
-export interface Card {
-  id: string;
-  image: string;
-  author: {
-    avatar: string;
-    name: string;
-  };
-  emojis: CardEmoji[];
-  views: number;
-  remixCount: number;
-  isOriginal?: boolean;
-}
-
-export const mockCards: Card[] = [
-  {
-    id: '1',
-    image: 'https://s3.us-west-2.amazonaws.com/yourware-assets/image/b8f32453-fb0d-4565-97d8-f17326aeb947/bur9x326kq.png',
-    author: {
-      avatar: 'https://lh3.googleusercontent.com/a/ACg8ocKBdTegVE_h2KRs1xCBKRqz4Mb_jLLET50sM6BiWgWrpZvbxxmW=s400-c',
-      name: 'Chloe Harper'
-    },
-    emojis: [
-      { type: 'rofl', count: 4, icon: 'https://public.yourware.so/emoji/rofl.svg' },
-      { type: '100', count: 4, icon: 'https://public.yourware.so/emoji/100.svg' },
-      { type: 'salute', count: 3, icon: 'https://public.yourware.so/emoji/salute.svg' },
-      { type: 'clap', count: 3, icon: 'https://public.yourware.so/emoji/clap.svg' }
-    ],
-    views: 483,
-    remixCount: 0,
-    isOriginal: true
-  },
-  {
-    id: '2',
-    image: 'https://images.unsplash.com/photo-1682687220742-aba19b51f36d',
-    author: {
-      avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-      name: 'Emma Wilson'
-    },
-    emojis: [
-      { type: 'heart', count: 8, icon: 'https://public.yourware.so/emoji/heart.svg' },
-      { type: 'fire', count: 5, icon: 'https://public.yourware.so/emoji/fire.svg' }
-    ],
-    views: 267,
-    remixCount: 2,
-    isOriginal: false
-  },
-  {
-    id: '3',
-    image: 'https://images.unsplash.com/photo-1682687221038-404670f09514',
-    author: {
-      avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-      name: 'James Chen'
-    },
-    emojis: [
-      { type: 'star', count: 12, icon: 'https://public.yourware.so/emoji/star.svg' },
-      { type: 'clap', count: 7, icon: 'https://public.yourware.so/emoji/clap.svg' }
-    ],
-    views: 892,
-    remixCount: 5,
-    isOriginal: true
-  },
-  {
-    id: '4',
-    image: 'https://images.unsplash.com/photo-1682687220509-61b8a906ca19',
-    author: {
-      avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
-      name: 'Sophie Taylor'
-    },
-    emojis: [
-      { type: 'rocket', count: 6, icon: 'https://public.yourware.so/emoji/rocket.svg' },
-      { type: 'heart', count: 9, icon: 'https://public.yourware.so/emoji/heart.svg' }
-    ],
-    views: 345,
-    remixCount: 1,
-    isOriginal: false
-  },
-  {
-    id: '5',
-    image: 'https://images.unsplash.com/photo-1682687221038-404670f09514',
-    author: {
-      avatar: 'https://randomuser.me/api/portraits/men/45.jpg',
-      name: 'Alex Johnson'
-    },
-    emojis: [
-      { type: 'fire', count: 15, icon: 'https://public.yourware.so/emoji/fire.svg' },
-      { type: '100', count: 8, icon: 'https://public.yourware.so/emoji/100.svg' }
-    ],
-    views: 567,
-    remixCount: 3,
-    isOriginal: true
-  }
-];
-
-export const Today = () => {
-  const cards: Card[] = mockCards;
+export const Cards: FC<CardsProps> = ({ data }) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-      {cards.map((card, index) => (
+      {data.map((card, index) => (
         <div 
           key={card.id}
           className={`${index === 0 ? 'col-span-1 md:col-span-2' : ''}`}
