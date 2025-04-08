@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { ChevronsDown, MessageSquare, Share2 } from 'lucide-react'
-import { Button } from "@monorepo/ui/components/Button"
 import { Tabs } from "@monorepo/ui/components/Tabs"
 import { Cards } from "@monorepo/ui/components/Cards"
 
@@ -15,10 +14,16 @@ export default function Home() {
           <span className="font-bold">YOURWARE</span>
           <span className="text-xs bg-gray-200 px-2 py-1 rounded">Alpha</span>
         </div>
-        <nav className="hidden md:flex space-x-4">
-          <Button variant="ghost" size="sm"><Share2 className="w-4 h-4 mr-2" />Share</Button>
-          <Button variant="ghost" size="sm"><MessageSquare className="w-4 h-4 mr-2" />Feedback</Button>
-          <Button variant="ghost" size="sm">Sign up</Button>
+        <nav className="flex items-center space-x-2">
+          <a className="p-1.5 flex items-center justify-center cursor-pointer hover:bg-[rgba(30,30,30,0.06)] hover:text-black/95 transition-all rounded-full">
+            <Share2 className="w-5 h-5" />
+          </a>
+          <a className="p-1.5 flex items-center justify-center cursor-pointer hover:bg-[rgba(30,30,30,0.06)] hover:text-black/95 transition-all rounded-full">
+            <MessageSquare className="w-5 h-5" />
+          </a>
+          <a className="px-3 py-1.5 flex items-center justify-center cursor-pointer font-medium text-[14px] bg-[#1E1E1E] text-white rounded-full font-outfit">
+            Sign up
+          </a>
         </nav>
       </header>
 
@@ -47,6 +52,10 @@ export default function Home() {
 
         <Cards data={mockCards} />
       </main>
+
+      <footer className="py-4 sm:py-6 px-4 text-gray-600 border-t border-gray-200 text-xs sm:text-sm text-center w-full">
+        <p>© 2025 REPORTER</p>
+      </footer>
     </div>
   )
 }
