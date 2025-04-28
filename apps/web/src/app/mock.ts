@@ -29,7 +29,7 @@ export const mockCards: any[] = [
       ],
       views: 267,
       remixCount: 2,
-      isOriginal: false
+      isOriginal: true
     },
     {
       id: '3',

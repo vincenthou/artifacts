@@ -3,16 +3,17 @@ import type { Card } from "@monorepo/types"
 
 interface CardsProps {
   data: Card[];
+  isToday?: boolean;
 }
 
-export const Cards: FC<CardsProps> = ({ data }) => {
+export const Cards: FC<CardsProps> = ({ data, isToday = false }) => {
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+    <div className={`grid grid-cols-1 gap-8 md:grid-cols-2 ${isToday ? 'xl:grid-cols-4 xl:grid-rows-2' : 'xl:grid-cols-3'}`}>
       {data.map((card, index) => (
         <div 
           key={card.id}
-          className={`${index === 0 ? 'col-span-1 md:col-span-2' : ''}`}
+          className={`${isToday && index === 0 ? 'col-span-1 flex md:col-span-2 xl:col-span-2 xl:col-start-2 xl:row-span-2 xl:row-start-1 xl:pt-[130px]' : ''}`}
         >
           <div className="w-full bg-white rounded-[20px] cursor-pointer">
             <div className="p-4 flex flex-col gap-4">
@@ -49,8 +50,10 @@ export const Cards: FC<CardsProps> = ({ data }) => {
 
             {/* Footer */}
             <div className="w-full flex border-t pt-3 px-4 pb-4 border-black/3 justify-between items-center">
-              {card.isOriginal && (
+              {card.isOriginal ? (
                 <div className="text-[10px] text-black/30">Original</div>
+              ) : (
+                <div className="text-[10px] text-green-600/60">AI Generated</div>
               )}
               <div className="flex items-center gap-3 ml-auto">
                 <div className="flex items-center gap-1">
