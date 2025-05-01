@@ -11,7 +11,7 @@ export default function Home() {
       <header className="flex justify-between items-center p-4 border-b">
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-black rounded-full"></div>
-          <span className="font-bold">YOURWARE</span>
+          <span className="font-bold">AIHUB</span>
           <span className="text-xs bg-gray-200 px-2 py-1 rounded">Alpha</span>
         </div>
         <nav className="flex items-center space-x-2">
@@ -50,7 +50,7 @@ export default function Home() {
               decoding="async"
               style={{ color: 'transparent' }}
             />
-            <h2 className="text-center text-[28px] sm:text-[48px]">Yourware Today</h2>
+            <h2 className="text-center text-[28px] sm:text-[48px]">AI Hub Today</h2>
             <Image 
               src="/wheat.svg"
               alt=""
